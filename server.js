@@ -1,12 +1,13 @@
-const express = require('express')
+const express = require('express') // express를 통해 서버를 생성
 const mongoose = require('mongoose')
 const Article = require('./models/article')
 const Comment = require('./models/comment')
 const articleRouter = require('./routes/articles')
+//const $ = require("jquery")
 
 const methodOverride = require('method-override')
 const comment = require('./models/comment')
-const app = express()
+const app = express() // app 호출시 express 호출
 
 const db = mongoose.connect('mongodb+srv://wnsdhqo:gkrehd102@cluster0.aoo8syv.mongodb.net/?retryWrites=true&w=majority', {
   useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true
@@ -15,7 +16,7 @@ const db = mongoose.connect('mongodb+srv://wnsdhqo:gkrehd102@cluster0.aoo8syv.mo
 
 
 
-app.set('view engine', 'ejs')
+app.set('view engine', 'ejs') // ejs 를 사용하여 view를 작성한 다름 view engine 을 통해 HTML 코드로 변환
 app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride('_method'))
 
@@ -27,6 +28,7 @@ app.get('/', async (req, res) => {
   
 })
 app.use('/articles', articleRouter)
+
 
 /*app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride('_method'))

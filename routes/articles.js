@@ -3,14 +3,13 @@ const article = require('./../models/article')
 const Article = require('./../models/article')
 const Comment = require('./../models/comment')
 const randomid = require('randomid');
-
-
 const router = express.Router()
+
 
 router.get('/new', (req, res) => {
   res.render('articles/new', { article: new Article() })
 })
-
+// edit 
 router.get('/edit/:id', async (req, res) => {
   const article = await Article.findById(req.params.id)
   res.render('articles/edit', { article: article })
@@ -39,7 +38,7 @@ router.post('/:slug', async (req, res) => {
 })
 router.get('/:slug', async (req, res) => {
   const article = await Article.findOne({ slug: req.params.slug })
-  const comments = await Comment.find({parentTitle : article.title})
+  const comments = await Comment.find({parentTitle : article.title})/**.sort({createdAt:'asc'}); */  // 댓글 기능 오름차순으로 정렬
   if (article == null) res.redirect('/')
   res.render('articles/show', { article: article ,comments : comments})
 })
@@ -50,6 +49,11 @@ router.get('/write/:id', async (req, res) => {
   const article = await Article.findById(req.params.id)
   const comment= await Comment.find({slug: article.title})
   res.render('articles/write', { article: article , comment : new Comment()})
+})
+// 주소 받아올 때 쿼리스트링?
+router.get('/search', async (req,res) => {
+  const article = await Article.findById(req.params.id)
+  res.render('articles/search',{article:article})
 })
 
 
@@ -79,6 +83,8 @@ router.delete('/:id', async (req, res) => {
   await Article.findByIdAndDelete(req.params.id)
   res.redirect('/')
 })
+
+
 
 
 

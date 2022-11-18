@@ -1,22 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Blog</title>
 </head>
+
 <body>
   <div class="container">
     <h1 class="mb-4">Blog Web Study</h1>
     <a href="/articles/new" class="btn btn-success">New Article</a>
+    <br>
+    <br>
+    <!-- 검색 창 -->
+    <div class="container input-group mb-1">
+      <input placeholder="검색어를 입력하세요" class="form-control" id="search-input">
+      <!--input 태그 벨류 가져오기-->
+      <!--검색 누를시 어디로? 페이지 이동-->
 
-    <% articles.forEach(article => { %>
+      <button class="input-group-append btn btn-light" id="seach">검색</button>
+    </div>
+    <% articles.forEach(article=> { %>
       <div class="card mt-4">
         <div class="card-body">
-          <h4 class="card-title"><%= article.title %></h4>
-          <h2><%=length%></h2>
+          <h4 class="card-title">
+            <%= article.title %>
+          </h4>
+          <h2>
+            <%=length%>
+          </h2>
           <div class="card-subtitle text-muted mb-2">
             <%= article.createdAt.toLocaleDateString() %>
           </div>
@@ -30,9 +46,13 @@
           </form>
         </div>
       </div>
-    <% }) %>
-
-    
+      <% }) %>
   </div>
+
+  <script>
+    // 이 변수 어떻게 써먹어야 되지?
+    var getInputVal = document.getElementById('search-input').value
+  </script>
 </body>
+
 </html>
