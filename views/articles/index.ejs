@@ -18,11 +18,17 @@
     <br>
     <!-- 검색 창 -->
     <div class="container input-group mb-1">
-      <input placeholder="검색어를 입력하세요" class="form-control" id="search-input">
+
+      
+      
       <!--input 태그 벨류 가져오기-->
       <!--검색 누를시 어디로? 페이지 이동-->
-
-      <button class="input-group-append btn btn-light" id="seach">검색</button>
+      <form action="/articles/search">
+        <input type = "text" required name = "keyword" placeholder="검색어를 입력하세요" class="form-control" id="search-input">
+    
+      <button type="submit" class="input-group-append btn btn-light" id="search" >검색</button>
+      </form>
+     <!--<button type= "submit" class="input-group-append btn btn-light" id="seach">검색</button> -->
     </div>
     <% articles.forEach(article=> { %>
       <div class="card mt-4">
@@ -30,9 +36,6 @@
           <h4 class="card-title">
             <%= article.title %>
           </h4>
-          <h2>
-            <%=length%>
-          </h2>
           <div class="card-subtitle text-muted mb-2">
             <%= article.createdAt.toLocaleDateString() %>
           </div>
@@ -49,10 +52,11 @@
       <% }) %>
   </div>
 
-  <script>
-    // 이 변수 어떻게 써먹어야 되지?
-    var getInputVal = document.getElementById('search-input').value
-  </script>
+ 
+
+  
+ 
+ 
 </body>
 
 </html>

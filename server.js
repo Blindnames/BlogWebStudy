@@ -7,6 +7,7 @@ const articleRouter = require('./routes/articles')
 
 const methodOverride = require('method-override')
 const comment = require('./models/comment')
+const article = require('./models/article')
 const app = express() // app 호출시 express 호출
 
 const db = mongoose.connect('mongodb+srv://wnsdhqo:gkrehd102@cluster0.aoo8syv.mongodb.net/?retryWrites=true&w=majority', {
@@ -24,9 +25,40 @@ app.get('/', async (req, res) => {
   const articles = await Article.find().sort({ createdAt: 'desc' })
   const article = await Article.findOne({title : articles.title})
   const comment = await Comment.find({parentTitle : articles.title})
-  res.render('articles/index', { articles: articles , length : Object.keys(comment).length })
+  res.render('articles/index', { articles: articles})
   
 })
+
+  // find 안에 원래 비어있었음
+  // const articles = await Article.find({article : req.query.value}).sort({ createdAt: 'desc' })
+  // const article = await Article.findOne({title : articles.title})
+  
+ 
+  //  res.render('articles/search', { articles: articles})
+  // res.send("Hello World")
+ 
+    // const articles = await Article.find({}).sort({ createdAt: 'desc' })
+    // const article = await Article.findOne({title : articles.title})
+    //  res.render('articles/search', { articles: articles})
+  app.get('/articles/search', async (req,res) => {
+      const {keyword} = req.query;
+      let articles =[];
+        
+      if(keyword){
+        //keyword가 있다면,
+        articles = await Article.find({
+          //Article = MongoDB의 Model
+          title : {
+            $regex : new RegExp(`${keyword}`,"i"),
+          },
+        }) 
+      }
+      return res.send(articles);
+      
+  
+     });
+      //  res.send("Hello World")
+
 app.use('/articles', articleRouter)
 
 
@@ -40,6 +72,14 @@ app.get('/', async (req, res) => {
 
 app.use('/articles', articleRouter)
 */
+
+
+
+
+
+ // find 안에 원래 비어있었음
+
+    
 
 app.listen(5000)
 
