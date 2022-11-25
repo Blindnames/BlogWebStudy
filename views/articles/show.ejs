@@ -1,53 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Juno World</title>
 </head>
+
 <body>
   <div class="container">
-    <h1 class="mb-1"><%= article.title %></h1>
-    
+    <h1 class="mb-1">
+      <!--새로운 게시물의 title을 제목으로 쓰겠다.-->
+      <%= article.title %>
+    </h1>
     <div class="text-muted mb-2">
       <!--오늘 날짜 값 받아와서 div 태그에 담기-->
       <%= article.createdAt.toLocaleDateString() %>
-      
+
     </div>
     <!--이전 메인페이지로 이동-->
     <a href="/" class="btn btn-secondary">All Articles</a>
     <!--특정 id 가 있는 edit 페이지로 이동-->
-    
     <a href="/articles/edit/<%= article.id %>" class="btn btn-info">Edit</a>
     <a href="/articles/write/<%=article.id %>" class="btn btn-warning">Write</a>
-    
     <div>
+      <!--작성한 Markdown에 대한 정보-->
       <%- article.sanitizedHtml %>
-      
     </div>
-<!--게시물 댓글에 대한 정보-->
+    <!--게시물 댓글에 대한 정보-->
     <div>
-      <% comments.forEach(comment => { %>
+      <% comments.forEach(comment=> { %>
         <div class="card mt-4">
           <div class="card-body">
-            <h4 class="card-title"><%= comment.title %></h4>
+            <h4 class="card-title">
+              <%= comment.title %>
+            </h4>
             <div class="card-subtitle text-muted mb-2">
               <%= comment.createdAt.toLocaleDateString() %>
             </div>
             <div class="card-text mb-2">
               <%= comment.description %>
             </div>
-            
-            <a href="articles/write/<%= comment.id %>" class="btn btn-info">Edit</a>
-            <form action="/articles/<%= comment.id %>?_method=DELETE" method="POST" class="d-inline">
+            <a href="/articles/write/<%= comment.id %>" class="btn btn-info">Edit</a>
+            <form action="/articles/write/<%= comment.id %>?_method=DELETE" method="POST" class="d-inline">
               <button type="submit" class="btn btn-danger">Delete</button>
             </form>
           </div>
         </div>
-      <% }) %>
+        <% }) %>
     </div>
   </div>
 </body>
+
 </html>

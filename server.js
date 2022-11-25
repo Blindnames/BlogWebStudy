@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const Article = require('./models/article')
 const Comment = require('./models/comment')
 const articleRouter = require('./routes/articles')
+// 모든 경로는 /articles 부터 출발
 //const $ = require("jquery")
 
 const methodOverride = require('method-override')
