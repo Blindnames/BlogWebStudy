@@ -21,6 +21,8 @@ const db = mongoose.connect('mongodb+srv://wnsdhqo:gkrehd102@cluster0.aoo8syv.mo
 app.set('view engine', 'ejs') // ejs 를 사용하여 view를 작성한 다름 view engine 을 통해 HTML 코드로 변환
 app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride('_method'))
+// css 사용하기 위해 상대경로 지정 index.ejs와 pretty.css 가 같이있는 폴더 경로
+app.use(express.static('views/articles'));
 
 app.get('/', async (req, res) => {
   const articles = await Article.find().sort({ createdAt: 'desc' })

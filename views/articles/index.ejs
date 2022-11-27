@@ -4,29 +4,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="pretty.css">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Blog</title>
 </head>
 
 <body>
-  <!--메인 페이지-->
-  <div class="container">
-    <h1 class="mb-4">Blog Web Study</h1>
-    <a href="/articles/new" class="btn btn-success">New Article</a>
-    <br>
-    <br>
-    <!-- 검색 창 -->
+  <header>
+    <div class="listimg">
+      <img src="https://cdn.icon-icons.com/icons2/2954/PNG/512/list_icon_184836.png" alt="" style="width: 30px; height: 30px;">
+    </div>
+    <div>
+      <!-- 검색 창 -->
     <!--<div class="container input-group mb-1">-->
       <!--input 태그 벨류 가져오기-->
       <!--검색 누를시 어디로? 페이지 이동-->
       <form action="/articles/search" class="input-group mb-1">
-        <input type="text" required name="keyword" placeholder="검색어를 입력하세요" class="form-control" id="search-input">
-        <button type="submit" class="input-group-append btn btn-light" id="search">검색</button>
+        <input type="text" required name="keyword" placeholder="Search..." class="form-control" id="search-input">
+        <button type="submit" class="w-btn-outline w-btn-gray-outline" id="search" >검색</button>
       </form>
       <!--<button type= "submit" class="input-group-append btn btn-light" id="seach">검색</button> -->
     <!--</div>-->
+    </div>
+  </header>
+  <section>
+  <div class="container">
+    <div class="Blogname">
+      <h1>Blog Web Study</h1>
+    </div>
+    <div>
+      <a href="/articles/new" class="button btnPush btnGray">New Article</a>
+    </div>
+    <br>
+    <br>
+    
     <% articles.forEach(article=> { %>
       <div class="card mt-4">
         <div class="card-body">
@@ -52,6 +65,7 @@
       </div>
       <% }) %>
   </div>
+</section>
 
 
 

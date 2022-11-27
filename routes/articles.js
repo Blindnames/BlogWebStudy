@@ -82,12 +82,20 @@ router.delete('/:id', async (req, res) => {
   res.redirect('/')
 })
 
-router.delete('/write/:id', async (req, res) => {
-  
+router.delete('/write/:id', async (req, res) => { 
+  const article = await Article.findOne({ slug: req.params.slug })
   await Comment.findByIdAndDelete(req.params.id)
+  
+  
   // res.render('articles/show',{comment : comment})
   // redirect 경로 설정 문제 title을 어떻게 가져오나
-  res.redirect('/articles/'+article.title)
+  try {
+    res.redirect(`/articles/${article.slug}`);
+  }
+  catch (e) {
+    console.log(`catch error when saving comments: ${e}`)
+    res.redirect('/')
+  }
 })
 
 function saveArticleAndRedirect(path) {
