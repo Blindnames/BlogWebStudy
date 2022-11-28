@@ -47,7 +47,7 @@
               <%= comment.description %>
             </div>
             <a href="/articles/write/<%= comment.id %>" class="btn btn-info">Edit</a>
-            <form action="/articles/write/<%= comment.id %>?_method=DELETE" method="POST" class="d-inline">
+            <form action="/articles/write/<%=article.slug%>/<%= comment.id%>?_method=DELETE" method="POST" class="d-inline">
               <button type="submit" class="btn btn-danger">Delete</button>
             </form>
           </div>

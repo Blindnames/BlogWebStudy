@@ -82,7 +82,8 @@ router.delete('/:id', async (req, res) => {
   res.redirect('/')
 })
 
-router.delete('/write/:id', async (req, res) => { 
+// slug:req.params.slug router 경로에있는 slug값을 가져온다.
+router.delete('/write/:slug/:id', async (req, res) => { 
   const article = await Article.findOne({ slug: req.params.slug })
   await Comment.findByIdAndDelete(req.params.id)
   
