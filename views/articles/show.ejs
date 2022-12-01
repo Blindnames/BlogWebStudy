@@ -46,7 +46,8 @@
             <div class="card-text mb-2">
               <%= comment.description %>
             </div>
-            <a href="/articles/write/<%= comment.id %>" class="btn btn-info">Edit</a>
+            <a href="/articles/write/edit/<%=article.slug%>/<%= comment.id %>" class="btn btn-info">Edit</a>
+            <!--댓글 삭제 할때 경로를 article.slug로 전달 -->
             <form action="/articles/write/<%=article.slug%>/<%= comment.id%>?_method=DELETE" method="POST" class="d-inline">
               <button type="submit" class="btn btn-danger">Delete</button>
             </form>
