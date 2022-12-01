@@ -97,7 +97,7 @@ router.put('/change/:slug/:id',async(req,res,next)=>{
   req.article = await Article.findOne({ slug: req.params.slug })
   req.comment = await Comment.findById(req.params.id)
   next()
-},saveCommentAndRedirect('edit'))
+},saveCommentAndRedirect('coedit'))
 
 
 

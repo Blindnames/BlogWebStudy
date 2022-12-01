@@ -9,6 +9,7 @@ const articleRouter = require('./routes/articles')
 const methodOverride = require('method-override')
 const comment = require('./models/comment')
 const article = require('./models/article')
+const { render } = require('ejs')
 const app = express() // app 호출시 express 호출
 
 const db = mongoose.connect('mongodb+srv://wnsdhqo:gkrehd102@cluster0.aoo8syv.mongodb.net/?retryWrites=true&w=majority', {
@@ -43,9 +44,11 @@ app.get('/', async (req, res) => {
     // const articles = await Article.find({}).sort({ createdAt: 'desc' })
     // const article = await Article.findOne({title : articles.title})
     //  res.render('articles/search', { articles: articles})
+    //검색 기능
   app.get('/articles/search', async (req,res) => {
       const {keyword} = req.query;
       let articles =[];
+      // const articles = await Article.find().sort({ createdAt: 'desc' })
         
       if(keyword){
         //keyword가 있다면,
@@ -56,7 +59,9 @@ app.get('/', async (req, res) => {
           },
         }) 
       }
-      return res.send(articles);
+      // 검색기능 articles를 전달해야함
+      return res.render('articles/search',{articles:articles})
+      // res.send(articles);
       
   
      });
