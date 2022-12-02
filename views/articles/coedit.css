@@ -1,0 +1,37 @@
+.com-control{
+    width: 800px;
+    height: 122px;
+    padding: 21px 70px 19px 19px;
+    border: 1px solid #e8e8e8;
+    font-size: 13px;
+    color: #999;
+}
+.btn-a{
+    width: 50px;
+    height: 25px;
+    
+    background-color: white;
+    border: 1px solid gainsboro;
+    border-radius: 50px;
+    text-align: center;
+}
+.btn-cancel{
+    color: black;
+    text-decoration-line: none;
+}
+.btn-button{
+    width: 50px;
+    height: 25px;
+    color: white;
+    background-color: black;
+    border: 1px solid gainsboro;
+    border-radius: 50px;
+}
+.btn-button:hover{
+    background-color: rgb(255, 51, 0);
+}
+.com-e-c{
+    display: flex;
+    position: relative;
+    margin-left: 800px;
+}
