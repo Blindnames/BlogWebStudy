@@ -4,14 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
-  <link rel="stylesheet" href="pretty.css">
+  <link rel="stylesheet" href="/edit.css">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Blog</title>
 </head>
 <body>
   <div class="container">
-    <h1 class="mb-4">Edit Article</h1>
-
+    <div class="listimg">
+      <a href="/">
+        <img src="https://www.shareicon.net/download/2016/01/19/705848_logo_512x512.png" alt="" style="width: 50px; height: 50px; padding: 10px;">
+      </a>
+    </div>
     <form action="/articles/<%= article.id %>?_method=PUT" method="POST">
       <%- include('_form_fields') %>
     </form>

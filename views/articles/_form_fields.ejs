@@ -1,19 +1,23 @@
-<div class="form-group">
-  <label for="title">Title</label>
+<div class="form-group2">
+  <!--New Article페이지 textarea의 내용물이 article의 description로 미리 채워짐-->
+  <textarea name="description" id="description" class="des-control"><%=article.description%></textarea>
+</div>
+<div class="form-group1">
   <!--New Article페이지 input 태그의 밸류가 article의 title로 미리 채워짐-->
-  <input required value="<%= article.title %>" type="text" name="title" id="title" class="form-control">
+  <input required value="<%= article.title %>" type="text" name="title" id="title" class="title-control" placeholder="제목을 입력하세요">
   
 </div>
-<div class="form-group">
-  <label for="description">Description</label>
-  <!--New Article페이지 textarea의 내용물이 article의 description로 미리 채워짐-->
-  <textarea name="description" id="description" class="form-control"><%= article.description %></textarea>
-</div>
-<div class="form-group">
-  <label for="markdown">Markdown</label>
+
+<div class="form-group3">
   <!--New Article페이지 textarea의 내용물이 article의 markdown로 미리 채워짐-->
-  <textarea required name="markdown" id="markdown" class="form-control"><%= article.markdown %></textarea>
+  <textarea required name="markdown" id="markdown" class="mark-control"><%= article.markdown %></textarea>
 </div>
 
-<a href="/" class="btn btn-secondary">Cancel</a>
-<button type="submit" class="btn btn-primary">Save</button>
+<div class="can-save">
+<div class="ec">
+<a href="/" class="edit-cancel">Cancel</a>
+</div>
+<div class="es">
+<button type="submit" class="edit-save">Save</button>
+</div>
+</div>

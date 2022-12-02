@@ -133,9 +133,6 @@ function saveArticleAndRedirect(path) {
     article.title = req.body.title
     article.description = req.body.description
     article.markdown = req.body.markdown
-    let comment = req.comment
-    comment.parentTitle = req.body.title
-    comment.description = req.body.description
     try {
       article = await article.save()
       res.redirect(`/articles/${article.slug}`) // ${article.id}

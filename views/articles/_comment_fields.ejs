@@ -1,8 +1,10 @@
 
   <div class="form-group">
-    <label for="description">Comment</label>
-    <textarea name="description" id="description" class="form-control"><%= comment.description %></textarea>
+    <textarea name="description" id="description" class="com-control" placeholder="내용을 입력하세요"><%= comment.description %></textarea>
   </div>
-
-  <a href="/articles/<%=article.slug%>" class="btn btn-secondary">Cancel</a>
-  <button type="submit" class="btn btn-primary">Save</button>
+  <div class="com-e-c">
+    <div class="btn-a">
+      <a href="/articles/<%=article.slug%>" class="btn-cancel">취소</a>
+    </div>
+    <button type="submit" class="btn-button">등록</button>
+  </div>
