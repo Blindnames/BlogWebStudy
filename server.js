@@ -59,6 +59,9 @@ app.get('/', async (req, res) => {
           },
         }) 
       }
+      else{
+        document.write("요청하신 게시물이 없습니다")
+      }
       // 검색기능 articles를 전달해야함
       return res.render('articles/search',{articles:articles})
       // res.send(articles);

@@ -1,40 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/search.css" />
     <title>Document</title>
-</head>
-<body>
-  <div class="listimg">
-    <a href="/">
-      <img src="https://www.shareicon.net/download/2016/01/19/705848_logo_512x512.png" alt="" style="width: 50px; height: 50px;">
-    </a>
-  </div>
+  </head>
+  <body>
+    <div class="listimg">
+      <a href="/">
+        <img
+          src="https://www.shareicon.net/download/2016/01/19/705848_logo_512x512.png"
+          alt=""
+          style="width: 50px; height: 50px"
+        />
+      </a>
+    </div>
+    <div class="every-main">
+      <b class="every">검색한 글</b>
+    </div>
     <% articles.forEach(article=> { %>
-        <div class="card mt-4">
-          <div class="card-body">
-            <h4 class="card-title">
-              <%= article.title %>
-            </h4>
+    <div class="main-body">
+      <!--게시물 전체를 클릭할 때 read-more 되게 해주기-->
+      <a href="<%= article.slug %>" class="read-more">
+        <div class="card-body">
+          <h4 class="card-title"><%= article.title %></h4>
+          <!--검색 후 read More 할시 articles/articles로 되기때문에 articles하나 지워주기-->
+          <div>
+            <!--작성한 Markdown에 대한 정보-->
+              <%- article.sanitizedHtml %>
+          </div>
+          <div class="des-date">
+            <div class="card-text"><%= article.description %></div>
             <div class="card-subtitle">
               <%= article.createdAt.toLocaleDateString() %>
             </div>
-            <div class="card-text">
-              <%= article.description %>
-            </div>
-            <!--article.slug로 개별기사에 접근할 수 있게 해줌//article.id로 할시 url id 값이 보여지기 때문에 article.slug로 바꿔줌-->
-            <a href="articles/<%= article.slug %>" class="read-more">Read More</a>
-            <a href="articles/edit/<%= article.id %>" class="edit">Edit</a>
-            <!--메인페이지 delete 기능-->
-            <!--/articles/id 경로로 데이터가 전달-->
-            <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
-              <!--제출 유형을 갖는 button 생성-->
-              <button type="submit" class="delete">Delete</button>
-            </form>
           </div>
         </div>
-        <% }) %>
-</body>
+      </a>
+      <!--delete 기능 show 안에서만 넣어보자-->
+      <!--/articles/id 경로로 데이터가 전달-->
+    </div>
+    <% }) %>
+  </body>
 </html>
