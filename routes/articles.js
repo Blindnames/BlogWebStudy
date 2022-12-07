@@ -1,15 +1,21 @@
-const express = require('express')
-const article = require('./../models/article')
-const Article = require('./../models/article')
-const Comment = require('./../models/comment')
+const express = require('express');
+const article = require('./../models/article');
+const Article = require('./../models/article');
+const Comment = require('./../models/comment');
 const randomid = require('randomid');
 const comment = require('./../models/comment');
-const router = express.Router()
+const router = express.Router();
+const user = require('./../models/article');
+const User = require('./../models/article');
 
 // articles/new 경로에 새로운 article 객체가 생김 ({article : new Article()})
 // title, description, markdown
 router.get('/new', (req, res) => {
   res.render('articles/new', { article: new Article() })
+})
+
+router.get('/join',(req,res)=>{
+  res.render('article/join',{user: new User()})
 })
 // Cannot GET /articles/edit/~~~~~id값 해결위한 라우터
 router.get('/edit/:id', async (req, res) => {
@@ -125,6 +131,7 @@ router.delete('/write/:slug/:id', async (req, res) => {
     res.redirect('/')
   }
 })
+
 
 //save
 function saveArticleAndRedirect(path) {
