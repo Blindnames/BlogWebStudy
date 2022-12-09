@@ -5,8 +5,9 @@ const Comment = require('./../models/comment');
 const randomid = require('randomid');
 const comment = require('./../models/comment');
 const router = express.Router();
-const user = require('./../models/article');
-const User = require('./../models/article');
+const user = require('./../models/user');  // './../models/user'
+const User = require('./../models/user'); // './../models/user'
+const res = require('express/lib/response');
 
 // articles/new 경로에 새로운 article 객체가 생김 ({article : new Article()})
 // title, description, markdown
@@ -14,9 +15,11 @@ router.get('/new', (req, res) => {
   res.render('articles/new', { article: new Article() })
 })
 
+// user 객체가 articles/join 보내짐
 router.get('/join',(req,res)=>{
-  res.render('article/join',{user: new User()})
+  res.render('articles/join',{user: new User()})
 })
+
 // Cannot GET /articles/edit/~~~~~id값 해결위한 라우터
 router.get('/edit/:id', async (req, res) => {
   const article = await Article.findById(req.params.id)
@@ -24,6 +27,27 @@ router.get('/edit/:id', async (req, res) => {
   res.render('articles/edit', { article: article })
 })
 
+// join.ejs에서 `button sumit` 시 
+//유일한 경로인 articles/join/new 에 데이터 전달
+//이 때 전달된 데이터는 input 태그에 입력된 `name` 값인 userid, email, pw
+router.post('/join/new',async(req,res)=>{
+  const user = new User({
+    userid : req.body.userid,
+    email : req.body.email,
+    pw : req.body.pw
+  })
+  console.log(req.body.userid)
+  console.log(req.body.email)
+  console.log(req.body.pw)
+  try{
+    await user.save();
+    res.redirect("/")
+  }
+  catch(e){
+    console.log(`${e}`);
+    res.redirect('/articles/join');
+  }
+})
 
 
 router.post('/:slug', async (req, res) => {
@@ -85,6 +109,11 @@ router.post('/', async (req, res, next) => {
   req.article = new Article()
   next()
 }, saveArticleAndRedirect('new'))
+
+// router.post('/',async(req,res,next)=>{
+//   req.user = new User()
+//   next()
+// },saveUserAndRedirect('join'))
 
 
 
@@ -168,3 +197,19 @@ function saveCommentAndRedirect(path) {
     }
   }
 }
+//save
+// function saveUserAndRedirect(path){
+//   return async(req,res) => {
+//     let user = req.user
+//     user.userid = req.body.userid
+//     user.pw = req.body.pw
+//     user.email = req.body.email
+  
+//     try{
+//       user = await user.save()
+//       res.redirect('/')
+//     }   catch(e){
+//       res.render(`articles/${path}`,{user:user})
+//     }
+//   }
+// }
