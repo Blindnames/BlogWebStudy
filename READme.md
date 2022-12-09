@@ -40,79 +40,6 @@
 <br>
 <h1>2. 제작 과정 및 결과물 정리</h1>
 <br>
-<h2>PJ01</h2>
-<br>
-<strong>제작 과정 및 결과</strong>
-<br>
-<br>
-🍓 딸기 빙수
-<br>
-// 각자 블로그 및 깃헙 정리
-<br>
-<br>
-🍋 Simune
-<br>
-// 각자 블로그 및 깃헙 정리
-<br>
-<br>
-🍇 Yeon
-<br>
-// 각자 블로그 및 깃헙 정리
-<br>
-<br>
-🍏 주드
-<br>
-// 각자 블로그 및 깃헙 정리
-
-<br>
-<h2>PJ02</h2>
-<br>
-<strong>제작 과정 및 결과</strong>
-<br>
-<br>
-🍓 딸기 빙수
-<br>
-// 각자 블로그 및 깃헙 정리
-<br>
-<br>
-🍋 Simune
-<br>
-// 각자 블로그 및 깃헙 정리
-<br>
-<br>
-🍇 Yeon
-<br>
-// 각자 블로그 및 깃헙 정리
-<br>
-<br>
-🍏 주드
-<br>
-// 각자 블로그 및 깃헙 정리
-<br>
-<h2>PJ03</h2>
-<br>
-<strong>제작 과정 및 결과</strong>
-<br>
-<br>
-🍓 딸기 빙수
-<br>
-// 각자 블로그 및 깃헙 정리
-<br>
-<br>
-🍋 Simune
-<br>
-// 각자 블로그 및 깃헙 정리
-<br>
-<br>
-🍇 Yeon
-<br>
-// 각자 블로그 및 깃헙 정리
-<br>
-<br>
-🍏 주드
-<br>
-// 각자 블로그 및 깃헙 정리
-<br>
 <h2>PJ04 최종</h2>
 <br>
 <strong>제작 과정 및 결과</strong>
@@ -120,7 +47,7 @@
 <br>
 🍓 딸기 빙수
 <br>
-// 각자 블로그 및 깃헙 정리
+// https://ionian-alfalfa-532.notion.site/Blog-web-project-0fe7038f91c94126983d0ec2692afad1
 <br>
 <br>
 🍋 Simune
@@ -128,14 +55,7 @@
 // 각자 블로그 및 깃헙 정리
 <br>
 <br>
-🍇 Yeon
-<br>
-// 각자 블로그 및 깃헙 정리
-<br>
-<br>
-🍏 주드
-<br>
-// 각자 블로그 및 깃헙 정리
+
 
 
 
