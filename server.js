@@ -12,7 +12,7 @@ const article = require('./models/article')
 const { render } = require('ejs')
 const app = express() // app 호출시 express 호출
 
-const db = mongoose.connect('mongodb+srv://wnsdhqo:gkrehd102@cluster0.aoo8syv.mongodb.net/?retryWrites=true&w=majority', {
+const db = mongoose.connect('mongodb+srv://wnsdhqo:gkrehd102@cluster0.pvuynxq.mongodb.net/', {
   useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true
 })
 

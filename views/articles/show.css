@@ -1,0 +1,48 @@
+body{
+    background-color: whitesmoke;
+}
+.show-body{
+    width: 800px;
+    border: 2px solid black;
+    padding: 20px;
+}
+.title-sub{
+    display: flex;
+    align-items: center;
+}
+.main-subtitle{
+    margin-left: 10px;
+}
+
+.edit{
+    margin-left: 780px;
+    color: black;
+    text-decoration-line: none;
+}
+.write{
+    text-decoration-line: none;
+    margin-left: 800px;
+    color: black;
+}
+.comment-body{
+    width: 500px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+}
+.card{
+    margin-top: 20px;
+}
+.com-edit{
+    
+    margin-right: 10px;
+}
+.a-edit{
+    text-decoration-line: none;
+    color: black;
+}
+.com-edit-del{
+    display: flex;
+    margin-left: 400px;
+
+}
